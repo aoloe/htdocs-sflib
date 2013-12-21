@@ -227,6 +227,7 @@ class Comment {
                             'showing_editor' => ($this->user_rights >= COMMENT_USER_RIGHTS_EDITOR),
                             'showing_admin' => ($this->user_rights == COMMENT_USER_RIGHTS_ADMIN),
                             'title' => $value['title'],
+                            'author_user' => $value['author_user'],
                             'author' => $value['author'],
                             'author_email' => $value['author_email'],
                             'date' => $value['datetime'],
@@ -249,6 +250,7 @@ $template_string =  <<<EOT
 {{if::showing_title=1::
 <p><label for= "title">Title:</label><input type="text" name="title" id="title" /></p>
 ::endif}}
+<input type="hidden" name="author_user" value="{{author_user}} />
 <p><label for= "comment">Comment:</label><textarea name="comment" id="comment"></textarea></p>
 {{if::showing_author=1::
 <p><label for= "author">Author:</label><input type="text" name="author" id="author" /></p>
